@@ -79,8 +79,8 @@ export default function Pricing() {
       className="py-24 md:py-32 bg-[#0D1224]/30 border-y border-border-card relative"
     >
       {/* Background blurs */}
-      <div className="absolute top-[30%] left-[-15%] w-[50%] h-[50%] bg-[#7B61FF] opacity-5 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[20%] right-[-15%] w-[50%] h-[50%] bg-[#00D4FF] opacity-5 blur-[130px] pointer-events-none" />
+      <div className="absolute top-[30%] left-[-15%] w-[50%] h-[50%] bg-[#7B61FF] opacity-5 blur-[130px] pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-[20%] right-[-15%] w-[50%] h-[50%] bg-[#00D4FF] opacity-5 blur-[130px] pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
@@ -125,11 +125,15 @@ export default function Pricing() {
 
           {/* Currency selection dropdown */}
           <div className="flex items-center space-x-3">
-            <span className="text-xs font-inter text-[#7B859E] uppercase tracking-wider font-semibold">
+            <label
+              htmlFor="currency-select"
+              className="text-xs font-inter text-[#7B859E] uppercase tracking-wider font-semibold"
+            >
               Currency:
-            </span>
+            </label>
             <div className="relative inline-block text-left">
               <select
+                id="currency-select"
                 aria-label="Select pricing currency"
                 value={currency}
                 onChange={(e) => setCurrency(e.target.value)}
@@ -140,8 +144,7 @@ export default function Pricing() {
                 <option value="GBP">GBP (£)</option>
                 <option value="JPY">JPY (¥)</option>
               </select>
-              {/* Custom SVG dropdown chevron */}
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-secondary-text">
+              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-secondary-text" aria-hidden="true">
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 10l5 5 5-5H7z" />
                 </svg>

@@ -4,29 +4,108 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!-- Primary Meta Tags -->
     <title>Aether AI | Automate Work. Scale Beyond Limits.</title>
     <meta name="title" content="Aether AI | Automate Work. Scale Beyond Limits." />
     <meta name="description" content="Aether AI is an enterprise-grade AI Automation Platform that allows businesses to automate workflows, connect AI agents, analyze data, and orchestrate intelligent operations." />
-    <link rel="canonical" href="https://aetherai.io" />
+    <meta name="keywords" content="AI automation, workflow automation, AI agents, enterprise AI, no-code automation, business intelligence" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#050816" />
+    <link rel="canonical" href="https://bento-accordion.vercel.app" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Performance: Preconnect to Google Fonts before fetch -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts as <link> (non-render-blocking vs @import in CSS) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aetherai.io" />
+    <meta property="og:url" content="https://bento-accordion.vercel.app" />
     <meta property="og:title" content="Aether AI | Automate Work. Scale Beyond Limits." />
     <meta property="og:description" content="Aether AI is an enterprise-grade AI Automation Platform that allows businesses to automate workflows, connect AI agents, analyze data, and orchestrate intelligent operations." />
-    <meta property="og:image" content="https://aetherai.io/og-image.jpg" />
+    <meta property="og:image" content="https://bento-accordion.vercel.app/og-image.png" />
+    <meta property="og:site_name" content="Aether AI" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://aetherai.io" />
-    <meta property="twitter:title" content="Aether AI | Automate Work. Scale Beyond Limits." />
-    <meta property="twitter:description" content="Aether AI is an enterprise-grade AI Automation Platform that allows businesses to automate workflows, connect AI agents, analyze data, and orchestrate intelligent operations." />
-    <meta property="twitter:image" content="https://aetherai.io/og-image.jpg" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://bento-accordion.vercel.app" />
+    <meta name="twitter:title" content="Aether AI | Automate Work. Scale Beyond Limits." />
+    <meta name="twitter:description" content="Aether AI is an enterprise-grade AI Automation Platform that allows businesses to automate workflows, connect AI agents, analyze data, and orchestrate intelligent operations." />
+    <meta name="twitter:image" content="https://bento-accordion.vercel.app/og-image.png" />
+
+    <!-- JSON-LD Structured Data (Organization Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Aether AI",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "Enterprise-grade AI Automation Platform that allows businesses to automate workflows, connect AI agents, analyze data, and orchestrate intelligent operations.",
+      "url": "https://bento-accordion.vercel.app",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "19",
+          "priceCurrency": "USD",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "79",
+          "priceCurrency": "USD",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" }
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "price": "299",
+          "priceCurrency": "USD",
+          "priceSpecification": { "@type": "UnitPriceSpecification", "billingDuration": "P1M" }
+        }
+      ],
+      "publisher": {
+        "@type": "Organization",
+        "name": "Aether AI Operations, Inc.",
+        "url": "https://bento-accordion.vercel.app"
+      }
+    }
+    </script>
   </head>
   <body>
+    <!-- Accessible skip navigation link -->
+    <a
+      href="#main-content"
+      class="skip-to-main"
+      style="position:absolute;top:-40px;left:6px;z-index:9999;padding:8px 16px;background:#7B61FF;color:white;border-radius:8px;font-family:Inter,sans-serif;font-size:14px;font-weight:600;text-decoration:none;transition:top 0.2s;"
+      onfocus="this.style.top='6px'"
+      onblur="this.style.top='-40px'"
+    >
+      Skip to main content
+    </a>
+
     <div id="root"></div>
+
+    <!-- Noscript fallback for non-JS browsers -->
+    <noscript>
+      <style>
+        body { background: #050816; color: white; font-family: sans-serif; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; text-align:center; }
+      </style>
+      <div>
+        <h1>Aether AI — Automate Everything. Scale Beyond Limits.</h1>
+        <p>Please enable JavaScript to experience the Aether AI platform.</p>
+        <p><a href="mailto:hello@aetherai.io" style="color:#7B61FF">Contact us at hello@aetherai.io</a></p>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

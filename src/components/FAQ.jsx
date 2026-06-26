@@ -27,7 +27,7 @@ export default function FAQ() {
       id="developers"
       className="py-24 md:py-32 bg-primary-bg relative overflow-hidden"
     >
-      <div className="absolute top-[20%] left-[-15%] w-[40%] h-[40%] bg-gradient-primary opacity-5 blur-[125px] pointer-events-none" />
+      <div className="absolute top-[20%] left-[-15%] w-[40%] h-[40%] bg-gradient-primary opacity-5 blur-[125px] pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
