@@ -31,7 +31,7 @@ export default function Navbar() {
       aria-label="Main Navigation"
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-350 border-b ${
         isScrolled
-          ? 'bg-[#050816]/80 backdrop-blur-md border-border-card py-4 shadow-lg'
+          ? 'bg-[#050816]/85 backdrop-blur-xl border-border-card py-4 shadow-lg shadow-black/30'
           : 'bg-transparent border-transparent py-6'
       }`}
     >
@@ -62,7 +62,7 @@ export default function Navbar() {
                 to={link.href}
                 className={`font-inter font-medium text-sm transition-colors duration-hover focus:outline-none focus:ring-1 focus:ring-white/20 rounded-md px-2 py-1 ${
                   isActive
-                    ? 'text-white font-semibold relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:bg-[#00D4FF]'
+                    ? 'text-white font-semibold relative after:absolute after:bottom-0 after:left-2 after:right-2 after:h-0.5 after:bg-[#FFC801]'
                     : 'text-secondary-text hover:text-white'
                 }`}
               >
@@ -76,9 +76,10 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center space-x-4">
           <Link
             to="/demo"
-            className="text-xs font-semibold font-inter text-[#00D4FF] hover:text-white border border-[#00D4FF]/30 hover:border-[#00D4FF]/80 rounded-xl px-4 py-2 transition-all duration-hover focus:outline-none"
+            className="text-xs font-semibold text-[#FFC801] hover:text-white border border-[#FFC801]/30 hover:border-[#FFC801]/60 rounded-xl px-4 py-2 transition-all duration-hover focus:outline-none"
+            style={{ fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.05em' }}
           >
-            Watch Demo
+            WATCH DEMO
           </Link>
           <Link
             to="/pricing"
@@ -107,11 +108,12 @@ export default function Navbar() {
             xmlns="http://www.w3.org/2000/svg"
           >
             {isMobileMenuOpen ? (
+              // Official x-mark SVG from provided assets
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
+                strokeWidth={1.5}
+                d="M6 18 18 6M6 6l12 12"
               />
             ) : (
               <path

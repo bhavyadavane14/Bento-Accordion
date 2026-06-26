@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
+  /* Core Brand Colors */
   --color-primary-bg: #050816;
   --color-secondary-bg: #0D1224;
   --color-surface-card: rgba(255, 255, 255, 0.05);
@@ -13,67 +14,111 @@
   --color-warning: #FBBF24;
   --color-error: #EF4444;
 
+  /* Official Hackathon Palette – used as accents */
+  --color-forsythia: #FFC801;
+  --color-deep-saffron: #FF9932;
+  --color-nocturnal: #114C5A;
+  --color-arctic-powder: #F1F6F4;
+  --color-mystic-mint: #D9E8E2;
+  --color-oceanic-noir: #172B36;
+
+  /* Fonts */
   --font-space-grotesk: 'Space Grotesk', sans-serif;
   --font-inter: 'Inter', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
 
+  /* Animations */
   --animate-glow-pulse: glow-pulse 6s ease-in-out infinite;
   --animate-float-slow: float-slow 8s ease-in-out infinite;
   --animate-glow-rotate: glow-rotate 10s linear infinite;
   --animate-pulse-slow: pulse-slow 3s ease-in-out infinite;
   --animate-marquee: marquee 30s linear infinite;
+  --animate-data-flow: data-flow 2.5s ease-in-out infinite;
+  --animate-node-ping: node-ping 2s ease-out infinite;
+  --animate-waveform: waveform 1.4s ease-in-out infinite;
+  --animate-slide-up: slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.4s ease-out forwards;
+  --animate-progress-fill: progress-fill 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-saffron-pulse: saffron-pulse 4s ease-in-out infinite;
 }
 
+/* ============ KEYFRAMES ============ */
+
 @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
 }
 
 @keyframes glow-pulse {
-  0%, 100% {
-    opacity: 0.6;
-    filter: drop-shadow(0 0 15px rgba(109, 94, 249, 0.4));
-  }
-  50% {
-    opacity: 1;
-    filter: drop-shadow(0 0 35px rgba(0, 212, 255, 0.7));
-  }
+  0%, 100% { opacity: 0.6; filter: drop-shadow(0 0 15px rgba(109, 94, 249, 0.4)); }
+  50% { opacity: 1; filter: drop-shadow(0 0 35px rgba(0, 212, 255, 0.7)); }
 }
 
 @keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(1deg);
-  }
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
 }
 
 @keyframes glow-rotate {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 0.8;
-  }
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
 }
 
-/* Custom Base Styles */
+@keyframes data-flow {
+  0% { stroke-dashoffset: 100; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes node-ping {
+  0% { transform: scale(1); opacity: 1; }
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
+
+@keyframes waveform {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--target-width, 80%); }
+}
+
+@keyframes saffron-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 200, 1, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(255, 200, 1, 0.15); }
+}
+
+@keyframes chart-draw {
+  from { stroke-dashoffset: 300; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes log-scroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+/* ============ BASE ============ */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -85,22 +130,19 @@ html, body {
   overflow-x: hidden;
 }
 
-/* Modern custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #050816;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(109, 94, 249, 0.5);
+/* JetBrains Mono for all mono/code elements */
+code, pre, .font-mono, kbd, samp,
+[class*="font-jetbrains"], [class*="tracking-widest"],
+.text-mono, .badge-mono {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Base layout container override for the whole app */
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #050816; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(109, 94, 249, 0.5); }
+
 #root {
   width: 100%;
   margin: 0 auto;
@@ -109,7 +151,8 @@ html, body {
   flex-direction: column;
 }
 
-/* High performance utility styles for premium UI elements */
+/* ============ GLASS UTILITY ============ */
+
 .glass-panel {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
@@ -127,17 +170,30 @@ html, body {
   box-shadow: 0 10px 30px -15px rgba(109, 94, 249, 0.3);
 }
 
+/* ============ GRADIENT TEXT ============ */
+
 .text-gradient-primary {
   background: linear-gradient(135deg, #6D5EF9 0%, #7B61FF 50%, #4F46E5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .text-gradient-accent {
   background: linear-gradient(135deg, #00D4FF 0%, #5EEAD4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
+
+.text-gradient-saffron {
+  background: linear-gradient(135deg, #FFC801 0%, #FF9932 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============ BG GRADIENTS ============ */
 
 .bg-gradient-primary {
   background: linear-gradient(135deg, #6D5EF9 0%, #7B61FF 50%, #4F46E5 100%);
@@ -147,18 +203,22 @@ html, body {
   background: linear-gradient(135deg, #00D4FF 0%, #5EEAD4 100%);
 }
 
-/* Custom duration definitions matching requirements */
-.duration-hover {
-  transition-duration: 180ms;
-}
-.duration-layout {
-  transition-duration: 350ms;
-}
-.duration-accordion {
-  transition-duration: 300ms;
+.bg-gradient-saffron {
+  background: linear-gradient(135deg, #FFC801 0%, #FF9932 100%);
 }
 
-/* Dynamic Grid Row transition for Auto Height */
+.bg-gradient-oceanic {
+  background: linear-gradient(135deg, #172B36 0%, #114C5A 100%);
+}
+
+/* ============ DURATIONS ============ */
+
+.duration-hover { transition-duration: 180ms; }
+.duration-layout { transition-duration: 350ms; }
+.duration-accordion { transition-duration: 300ms; }
+
+/* ============ ACCORDION GRID ============ */
+
 .accordion-grid-transition {
   display: grid;
   grid-template-rows: 0fr;
@@ -167,4 +227,90 @@ html, body {
 
 .accordion-grid-transition.expanded {
   grid-template-rows: 1fr;
+}
+
+/* ============ ANIMATED SVG ICONS ============ */
+
+.svg-spin-slow {
+  animation: spin 20s linear infinite;
+}
+
+.svg-spin-reverse {
+  animation: spin 12s linear infinite reverse;
+}
+
+/* ============ BENTO CARD ENHANCEMENTS ============ */
+
+/* Animated waveform bars */
+.waveform-bar {
+  animation: waveform var(--dur, 1.2s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  transform-origin: bottom;
+}
+
+/* Animated chart line draw */
+.chart-line-draw {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: chart-draw 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scrolling log terminal */
+.log-scroll {
+  animation: log-scroll 8s linear infinite;
+}
+
+/* Node status ring */
+.node-status-ring {
+  animation: node-ping 2s ease-out infinite;
+}
+
+/* Saffron badge glow for active status */
+.badge-saffron {
+  background: linear-gradient(135deg, rgba(255, 200, 1, 0.15), rgba(255, 153, 50, 0.15));
+  border: 1px solid rgba(255, 200, 1, 0.3);
+  color: #FFC801;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  animation: saffron-pulse 4s ease-in-out infinite;
+}
+
+/* Forsythia/Saffron hover glow on buttons */
+.btn-saffron-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 200, 1, 0.2), 0 0 40px rgba(255, 153, 50, 0.1);
+}
+
+/* Progress bar animated fill */
+.progress-bar-animated {
+  animation: progress-fill 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Nocturnal/Oceanic glow accent for nodes */
+.node-oceanic {
+  background: linear-gradient(135deg, #172B36, #114C5A);
+  border: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+/* ============ WORKFLOW PIPELINE NODE ============ */
+
+.pipeline-node {
+  position: relative;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pipeline-node.active {
+  border-color: rgba(255, 200, 1, 0.5);
+  box-shadow: 0 0 16px rgba(255, 200, 1, 0.15);
+}
+
+.pipeline-node.completed {
+  border-color: rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.1);
+}
+
+/* Connection wire animation */
+.connection-wire {
+  stroke-dasharray: 8 4;
+  animation: data-flow 2.5s ease-in-out infinite;
 }
